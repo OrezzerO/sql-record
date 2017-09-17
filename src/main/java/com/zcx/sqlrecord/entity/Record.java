@@ -28,7 +28,7 @@ public class Record {
     @Column(name = "id")
     private int id;
     @Column
-    private String sql;
+    private String sqlStatement;
     @Column
     private String executeMessage;
     @Column
@@ -36,7 +36,7 @@ public class Record {
     @Column
     private int userId;
     @Column
-    private String executeStatus;
+    private int executeStatus;
     @Column(name = "isDeleted", columnDefinition = "Bit default '0'")
     int isDeleted;
 }

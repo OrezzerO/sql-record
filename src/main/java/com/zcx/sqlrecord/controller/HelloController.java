@@ -36,7 +36,7 @@ public class HelloController {
         String password ="qwer1234";
 
 
-        Class.forName(driver);
+//        Class.forName(driver);
         Connection conn = DriverManager.getConnection(url, user, password);
 
         // statement用来执行SQL语句
