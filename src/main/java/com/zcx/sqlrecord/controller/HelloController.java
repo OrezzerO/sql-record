@@ -14,7 +14,8 @@ import java.sql.*;
 /**
  * Created by zhangchengxi on 2017/9/17.
  */
-@RestController("/")
+@RestController()
+@RequestMapping("/")
 public class HelloController {
 
     @Autowired

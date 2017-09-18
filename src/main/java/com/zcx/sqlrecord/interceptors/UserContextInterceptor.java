@@ -27,15 +27,14 @@ public class UserContextInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
         Integer userId = (Integer) session.getAttribute(SessionKeyConstants.userId);
-        User user = userRepository.findOne(userId);
-        if (Objects.nonNull(user)) {
+
+        if (Objects.nonNull(userId)) {
+            User user = userRepository.findOne(userId);
             ContextContainer.getUserContext().setUser(user);
             return true;
         } else {
             response.sendRedirect(Constants.HOME_PAGE);
             return false;
         }
-
-
     }
 }
