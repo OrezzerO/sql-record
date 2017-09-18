@@ -36,6 +36,8 @@ public class Record {
     @Column
     private int userId;
     @Column
+    private int dbId;
+    @Column
     private int executeStatus;
     @Column(name = "isDeleted", columnDefinition = "Bit default '0'")
     int isDeleted;

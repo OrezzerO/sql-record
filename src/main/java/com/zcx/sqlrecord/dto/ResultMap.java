@@ -3,10 +3,11 @@ package com.zcx.sqlrecord.dto;
 /**
  * Created by zhangchengxi on 2017/9/17.
  */
+
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Builder;
 
 @Data
 @Builder
@@ -22,5 +23,12 @@ public class ResultMap<T> {
     public static ResultMap generate(boolean isSuccess){
         int code = isSuccess? SUCCESS_CODE : FAILURE_CODE;
         return ResultMap.builder().code(code).build();
+    }
+
+    public static  ResultMap addData(Object data) {
+        ResultMap resultMap = new ResultMap();
+        resultMap.setCode(SUCCESS_CODE);
+        resultMap.setData(data);
+        return resultMap;
     }
 }
