@@ -7,6 +7,8 @@ import com.zcx.sqlrecord.util.PasswordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 /**
  * Created by zhangchengxi on 2017/9/18.
  */
@@ -19,6 +21,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean checkLogin(User user) {
         User dbUser = userRepository.findByAccount(user.getAccount());
-        return dbUser.getPassword().equals(PasswordUtils.encrypt(user.getPassword()));
+        return Objects.nonNull(dbUser) && dbUser.getPassword().equals(PasswordUtils.encrypt(user.getPassword()));
     }
 }
