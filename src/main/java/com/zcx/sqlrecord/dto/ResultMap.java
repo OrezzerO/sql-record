@@ -25,7 +25,7 @@ public class ResultMap<T> {
         return ResultMap.builder().code(code).build();
     }
 
-    public static  ResultMap addData(Object data) {
+    public static <T> ResultMap<T> addData(T data) {
         ResultMap resultMap = new ResultMap();
         resultMap.setCode(SUCCESS_CODE);
         resultMap.setData(data);

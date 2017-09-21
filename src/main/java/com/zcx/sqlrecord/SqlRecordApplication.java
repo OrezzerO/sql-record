@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SqlRecordApplication {
 
 	public static void main(String[] args) {
+		System.out.println("heheheh");
 		SpringApplication.run(SqlRecordApplication.class, args);
+		System.out.println("hehehe");
 	}
 }

@@ -26,10 +26,10 @@ public class UserContextInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
-        Integer userId = (Integer) session.getAttribute(SessionKeyConstants.userId);
+        String account = (String) session.getAttribute(SessionKeyConstants.account);
 
-        if (Objects.nonNull(userId)) {
-            User user = userRepository.findOne(userId);
+        if (Objects.nonNull(account)) {
+            User user = userRepository.findByAccount(account);
             ContextContainer.getUserContext().setUser(user);
             return true;
         } else {

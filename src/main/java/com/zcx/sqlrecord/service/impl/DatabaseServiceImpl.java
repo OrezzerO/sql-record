@@ -66,6 +66,16 @@ public class DatabaseServiceImpl implements DatabaseService {
         return result;
     }
 
+    @Override
+    public Iterable<Database> queryAll() {
+        Iterable<Database> all = databaseRepository.findAll();
+        for (Database database : all) {
+            database.setAccount("");
+            database.setPassword("");
+        }
+        return all;
+    }
+
     //  很怀疑这个事务能不能生效,因为下面这个函数是直接操作数据库的
     @Transactional
     private int executeSql(Database database, String sql) throws SQLException {
@@ -84,4 +94,6 @@ public class DatabaseServiceImpl implements DatabaseService {
         }
 
     }
+
+
 }
